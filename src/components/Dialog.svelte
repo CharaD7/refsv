@@ -10,6 +10,20 @@
   let content = '';
 
   export let open = false;
+
+  async function createPost() {
+    const res = await fetch(`https://api.fake-rest.refine.dev/posts`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title, content, createdAt: Date.now() }),
+    })
+    .then((res) => {
+        res.json();
+        open = false;
+      });
+  };
 </script>
 
 <Dialog bind:open selection aria-labelledby="list-title" aria-describedby="list-content">
