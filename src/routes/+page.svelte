@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import Table from '../components/Table/Table.svelte';
+  import Buttton from '@smui/button';
+  import Dialog from '../components/Dialog.svelte';
 
   type Post = {
     createdAt: Date;
@@ -35,4 +37,12 @@
   };
 </script>
 
-<Table items={items} loaded={loaded} />
+let open = false;
+
+<div style="display: flex; justify-content: space-between;">
+  <Button on:click={() => (open = true)}>Add New</Button>
+</div>
+
+<Table {items} {loaded} />
+
+<Dialog {open} />
