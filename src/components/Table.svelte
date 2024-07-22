@@ -1,3 +1,11 @@
+<script lang="ts">
+  import DataTable, { (Head, Body, Row, Cell) } from '@smui/data-table';
+  import LinearProgress from '@smui/linear-progress';
+  import Button from '@smui/button';
+  export let items: any[] = [];
+  export let loaded: boolean = false;
+</script>
+
 <DataTable table$aria-label="User list" style="width: 100%">
   <Head>
     <Row>
@@ -16,7 +24,6 @@
         <Cell><img width="100" src="https://refine.ams3.cdn.digitaloceanspaces.comundefined" alt="" /></Cell>
         <Cell>{item.createdAt}</Cell>
         <Cell>
-          <a href={`/post/${item.id}`}Edit</a>
           <a href={`/post/${item.id}`}>Edit</a>
           <Button>Delete</Button>
         </Cell>
@@ -31,3 +38,4 @@
     slot="progress"
   />
 </DataTable>
+
