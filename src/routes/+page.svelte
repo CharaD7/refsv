@@ -1,2 +1,38 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+  import { onMount } from 'svelte';
+  import Table from '../components/Table/Table.svelte';
+
+  type Post = {
+    createdAt: Date;
+    image: any;
+    content: string;
+    title: string;
+    id: number;
+  };
+
+  let items: Post[] = [];
+  let loaded: boolean = false;
+
+  onMount(() => loadThings(false));
+
+  function loadThings(wait: boolean) {
+    if (typeof fetch !== 'undefined') {
+      loaded = false;
+
+      fetch('https://api.fake-rest.refine.dev/posts')
+        .then((response) => response.json())
+        .then((json) => 
+          setTimeout (
+            () => {
+              items = json;
+              loaded = true;
+            },
+            // Simulate a long load time.
+            wait ? 2000 : 0
+        )
+      );
+    }
+  };
+</script>
+
+<Table items={items} loaded={loaded} />
