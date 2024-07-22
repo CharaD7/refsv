@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import Table from '../components/Table/Table.svelte';
-  import Buttton from '@smui/button';
+  import Table from '../components/Table.svelte';
+  import Button from '@smui/button';
   import Dialog from '../components/Dialog.svelte';
 
   type Post = {
