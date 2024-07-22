@@ -13,11 +13,10 @@
   };
 
   let items: Post[] = [];
-  let loaded: boolean = false;
+  let loaded = false;
 
   onMount(() => loadThings(false));
 
-  function loadThings(wait: boolean) {
     if (typeof fetch !== 'undefined') {
       loaded = false;
 
