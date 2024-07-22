@@ -17,6 +17,7 @@
         <Cell>{item.createdAt}</Cell>
         <Cell>
           <a href={`/post/${item.id}`}Edit</a>
+          <a href={`/post/${item.id}`}>Edit</a>
           <Button>Delete</Button>
         </Cell>
       </Row>
