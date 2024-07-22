@@ -1,7 +1,8 @@
 <script lang="ts">
-  import DataTable, { (Head, Body, Row, Cell) } from '@smui/data-table';
+  import DataTable, { Head, Body, Row, Cell } from '@smui/data-table';
   import LinearProgress from '@smui/linear-progress';
   import Button from '@smui/button';
+
   export let items: any[] = [];
   export let loaded: boolean = false;
 </script>
